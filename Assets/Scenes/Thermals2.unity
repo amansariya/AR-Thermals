@@ -993,7 +993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &391522992
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2377,7 +2377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBasedFeedback: {fileID: 0}
   timeAmount: 7
-  objectDelayEntries: []
+  spikeElements: []
+  spikeTime: 0
 --- !u!1 &543406255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,6 +3858,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 639419705}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 4d83d8a8e2b5f4c439ba875199e43962, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls:
@@ -3865,7 +3878,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e07ab891b789ba348a9fe958fd060eff, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 7aa81e00b6094c6439e7de6c66736e2a, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3962,41 +3975,17 @@ MonoBehaviour:
   onDwell:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029226186}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 639419706}
+        m_TargetAssemblyTypeName: DetectedFeedback, Assembly-CSharp
+        m_MethodName: SpikeDisplay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1226831772}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 507430439}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   onSelected:
     m_PersistentCalls:
@@ -4019,7 +4008,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4118,13 +4107,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBasedFeedback: {fileID: 1077527773}
   timeAmount: 4
-  objectDelayEntries:
-  - gameObject: {fileID: 1029226186}
-    delay: 7
-  - gameObject: {fileID: 1226831772}
-    delay: 7
-  - gameObject: {fileID: 507430439}
-    delay: 7
+  spikeElements:
+  - {fileID: 1029226186}
+  - {fileID: 1226831772}
+  - {fileID: 507430439}
+  spikeTime: 7
 --- !u!114 &639419707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7044,7 +7031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBasedFeedback: {fileID: 0}
   timeAmount: 7
-  objectDelayEntries: []
+  spikeElements: []
+  spikeTime: 0
 --- !u!1 &1054475146
 GameObject:
   m_ObjectHideFlags: 0
@@ -8763,7 +8751,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBasedFeedback: {fileID: 0}
   timeAmount: 7
-  objectDelayEntries: []
+  spikeElements: []
+  spikeTime: 0
 --- !u!1 &1267695655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1267695655, guid: a4ee27144f7b80441a464c6463bf83c5, type: 3}
@@ -9537,7 +9526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBasedFeedback: {fileID: 1021164233}
   timeAmount: 4
-  objectDelayEntries: []
+  spikeElements: []
+  spikeTime: 0
 --- !u!1001 &1405997805
 PrefabInstance:
   m_ObjectHideFlags: 0
