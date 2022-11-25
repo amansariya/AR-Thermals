@@ -35,7 +35,7 @@ public class TemperatureRead : MonoBehaviour
     {
         tempValue.text = value1.ToString();
         testRenderer.material.color = Color.green;
-        //SetColor1(value1);
+        SetColor1(value1);
     }  
 
     void SetColor1(int val)

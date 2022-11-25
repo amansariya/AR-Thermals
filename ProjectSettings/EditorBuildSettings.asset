@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Samples/Mixed Reality Toolkit Foundation/2.8.2/Scene System Resources/DefaultManagerScene.unity
+    guid: ae7bb08d297fb69408695d8de0962524
+  - enabled: 1
     path: Assets/Scenes/Thermals2.unity
     guid: fafe30a00cce8ef44981b35395875a66
+  - enabled: 1
+    path: Assets/Samples/Mixed Reality Toolkit Foundation/2.8.2/Scene System Resources/DefaultLightingScene.unity
+    guid: 7e54e36c44f826c438c95da79f8de638
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: adf5086011bd494428c4f3f194061d7e, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: a697d43744e4780438ed98d64f97809c, type: 2}
