@@ -6,39 +6,43 @@ using System.Security.AccessControl;
 
 public class TemperatureRead : MonoBehaviour
 {
-    int value1 = 25;
+    int valueLeft = 25;
+    int valueRight = 70;
 
     [SerializeField]
-    private TextMeshPro tempValue;
+    private TextMeshPro tempValueLeft;
 
     [SerializeField]
-    private GameObject colorIndicatorSphere;
+    private TextMeshPro tempValueRight;
+
+    [SerializeField]
+    private GameObject colorIndicatorSphereLeft;
+
+    [SerializeField]
+    private GameObject colorIndicatorSphereRight;
 
     private Color newSphereColor;
 
-    private Renderer sphereRenderer;
-
-    [SerializeField]
-    private GameObject test;
-
-    private Renderer testRenderer;
+    private Renderer sphereRendererLeft;
+    private Renderer sphereRendererRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        sphereRenderer = colorIndicatorSphere.GetComponent<Renderer>();
-        testRenderer = test.GetComponent<Renderer>();
+        sphereRendererLeft = colorIndicatorSphereLeft.GetComponent<Renderer>();
+        sphereRendererRight = colorIndicatorSphereRight.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        tempValue.text = value1.ToString();
-        testRenderer.material.color = Color.green;
-        SetColor1(value1);
+        tempValueLeft.text = valueLeft.ToString();
+        tempValueRight.text = valueRight.ToString();
+        SetColor(valueLeft, sphereRendererLeft);
+        SetColor(valueRight, sphereRendererRight);
     }  
 
-    void SetColor1(int val)
+    void SetColor(int val, Renderer sphereRenderer)
     {
         if (val <= 30)
         {
