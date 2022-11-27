@@ -9,6 +9,7 @@ public class ROSSubscriber : MonoBehaviour
 {
     Texture2D texture;
     ThermalCameraMsg lastMsg;
+    public float rightTemp, leftTemp;
     uint lastSeqProcessed;
 
     [SerializeField] private Renderer planeRenderer;
@@ -28,17 +29,64 @@ public class ROSSubscriber : MonoBehaviour
         ROSConnection.GetOrCreateInstance().Subscribe<ThermalCameraMsg>("thermals", Callback);
         lastSeqProcessed = uint.MaxValue;
         lastMsg = null;
+        rightTemp = -100;
+        leftTemp = -100;
+
     }
     void Callback(ThermalCameraMsg thermalMsg)
     {
         lastMsg = thermalMsg;
+        //StartCoroutine(getThermalValues(thermalMsg.thermal_image)); ;
+        //leftTemp = leftRightTemp[0];
+        //rightTemp = leftRightTemp[1];
+    }
+
+    void getThermalValues(float[] arr)
+    {
+        //Debug.Log("width : " + width.ToString());
+        //Debug.Log("height : " + height.ToString());
+        int THRESHOLD = 20;
+        int numberLeft = 0;
+        int numberRight = 0;
+        float sumLeft = 0;
+        float sumRight = 0;
+
+        Debug.Log("in the func");
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {   
+                if (arr[(width * i) + j] > THRESHOLD)
+                {
+                    if (j < width/2)
+                    {
+                        numberRight++;
+                        sumRight += arr[(width * i) + j];
+                    }
+                    else
+                    {
+                        numberLeft++;
+                        sumLeft += arr[(width * i) + j];
+                    }
+                }
+            }
+        }
+        //Debug.Log("done processing");
+
+        rightTemp = (float)sumRight / numberRight;
+        leftTemp = (float)sumLeft / numberLeft;
+        Debug.Log("sumRight : " + sumRight.ToString());
+        Debug.Log("numRight : " + numberRight.ToString());
+        Debug.Log("exiting");
     }
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log("RightTemp = " + rightTemp);
+        Debug.Log("LeftTemp = " + leftTemp);
         if (lastMsg != null && lastMsg.header.seq != lastSeqProcessed)
         {
+            getThermalValues(lastMsg.thermal_image);
             lastSeqProcessed = lastMsg.header.seq;
             for (int i = 0; i < height; i++)
             {

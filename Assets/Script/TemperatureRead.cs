@@ -6,8 +6,10 @@ using System.Security.AccessControl;
 
 public class TemperatureRead : MonoBehaviour
 {
-    int valueLeft = 25;
-    int valueRight = 70;
+    float valueLeft;
+    float valueRight;
+
+    readonly ROSSubscriber ros = new ROSSubscriber();
 
     [SerializeField]
     private TextMeshPro tempValueLeft;
@@ -21,7 +23,7 @@ public class TemperatureRead : MonoBehaviour
     [SerializeField]
     private GameObject colorIndicatorSphereRight;
 
-    private Color newSphereColor;
+    //private Color newSphereColor;
 
     private Renderer sphereRendererLeft;
     private Renderer sphereRendererRight;
@@ -36,13 +38,15 @@ public class TemperatureRead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        valueLeft = ros.leftTemp;
+        valueRight = ros.rightTemp;
         tempValueLeft.text = valueLeft.ToString();
         tempValueRight.text = valueRight.ToString();
         SetColor(valueLeft, sphereRendererLeft);
         SetColor(valueRight, sphereRendererRight);
     }  
 
-    void SetColor(int val, Renderer sphereRenderer)
+    void SetColor(float val, Renderer sphereRenderer)
     {
         if (val <= 30)
         {
