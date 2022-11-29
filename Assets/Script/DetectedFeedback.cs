@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class DetectedFeedback : MonoBehaviour
 {
-    public GameObject timeBasedFeedback;
-    // Start is called before the first frame update
-    public float timeAmount;
-
-    //[SerializeField]
-    //private ObjectDelayEntry[] objectDelayEntries;
+    [SerializeField]
+    private GameObject timeBasedFeedback;
 
     [SerializeField]
-    public GameObject[] spikeElements;
+    private float timeAmount;
 
-    public float spikeTime;
+    [SerializeField]
+    private GameObject[] spikeElements;
+
+    [SerializeField]
+    private float spikeTime;
 
     IEnumerator ToggleSpikes(GameObject[] gobj,float delay)
     {

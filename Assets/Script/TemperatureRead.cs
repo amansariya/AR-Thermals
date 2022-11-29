@@ -40,8 +40,8 @@ public class TemperatureRead : MonoBehaviour
     private readonly int height = ThermalCameraMsg.HEIGHT;
 
     // TODO (avinash) Change these magic numbers
-    private readonly float maxTemp = 35.0f;
-    private readonly float minTemp = 20.0f;
+    private readonly float maxTemp = 45.0f;
+    private readonly float minTemp = 25.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +69,7 @@ public class TemperatureRead : MonoBehaviour
     {
         //Debug.Log("width : " + width.ToString());
         //Debug.Log("height : " + height.ToString());
-        int THRESHOLD = 20;
+        int THRESHOLD = 33;
         int numberLeft = 0;
         int numberRight = 0;
         float sumLeft = 0;
@@ -112,8 +112,8 @@ public class TemperatureRead : MonoBehaviour
     {
         //Debug.Log("RightTemp = " + valueRight);
         //Debug.Log("LeftTemp = " + valueLeft);
-        tempValueLeft.text = valueLeft.ToString();
-        tempValueRight.text = valueRight.ToString();
+        //tempValueLeft.text = valueLeft.ToString();
+        //tempValueRight.text = valueRight.ToString();
         SetColor(valueLeft, sphereRendererLeft);
         SetColor(valueRight, sphereRendererRight);
         if (lastMsg != null && lastMsg.header.seq != lastSeqProcessed)
@@ -192,4 +192,127 @@ public class TemperatureRead : MonoBehaviour
 
         return (c);
     }
+
+    public void SetTempValue()
+    {
+        float left = valueLeft;
+        float right = valueRight;
+
+        if (valueLeft == -100 || valueLeft == float.NaN)
+        {
+            tempValueLeft.text = "No value";
+        }
+        else
+        {
+            tempValueLeft.text = ((float)System.Math.Round(valueLeft, 1)).ToString();
+        }
+
+        if (valueRight == -100 || valueRight == float.NaN)
+        {
+            tempValueRight.text = "No value";
+        }
+        else
+        {
+            tempValueRight.text = ((float)System.Math.Round(valueRight, 1)).ToString();
+        }
+    }
+
+    /*Color GetColour(float temp)//temperature value
+    {
+        Color c = new Color(1.0f, 1.0f, 1.0f, 1.0f); // white, temp value
+        float temp_d; //temp diference
+        if (temp < minTemp) //Minimum Temperature
+            temp = minTemp;
+        if (temp > maxTemp) //Max Temperature
+            temp = maxTemp;
+
+        temp_d = maxTemp - minTemp;
+
+        if (temp == minTemp + 0*temp_d) //0
+        {
+            c.r = 0;
+            c.g = 0;
+            c.b = 102;
+        }
+        else if(temp < (minTemp + 0.1 * temp_d)) //1
+        {
+            c.r = 0;
+            c.g = 0;
+            c.b = 255;
+        }
+
+        else if(temp < (minTemp + 0.2 * temp_d)) //2
+        {
+            c.r = 0;
+            c.g = 128;
+            c.b = 255;
+        }
+
+
+        else if(temp < (minTemp + 0.3 * temp_d)) //3
+        {
+            c.r = 0;
+            c.g = 255;
+            c.b = 255;
+        }
+
+        else if(temp < (minTemp + 0.4 * temp_d)) //4
+        {
+            c.r = 0;
+            c.g = 255;
+            c.b = 128;
+        }
+
+        else if(temp < (minTemp + 0.5 * temp_d)) //5
+        {
+            c.r = 0;
+            c.g = 255;
+            c.b = 0;
+        }
+        else if(temp < (minTemp + 0.6 * temp_d)) //6
+        {
+            c.r = 0;
+            c.g = 0;
+            c.b = 225;
+        }
+
+
+        else if(temp < (minTemp + 0.7 * temp_d)) //7
+        {
+            c.r = 128;
+            c.g = 255;
+            c.b = 0;
+        }
+
+
+        else if(temp < (minTemp + 0.8 * temp_d)) //8
+        {
+            c.r = 255;
+            c.g = 255;
+            c.b = 0;
+        }
+
+
+        else if(temp < (minTemp + 0.9 * temp_d)) //9
+        {
+            c.r = 255;
+            c.g = 128;
+            c.b = 0;
+        }
+
+        else if(temp < (minTemp + 1 * temp_d)) //10
+        {
+            c.r = 255;
+            c.g = 0;
+            c.b = 0;
+        }
+
+        else
+        {
+            c.r = 255;
+            c.g = 0;
+            c.b = 0;
+        }
+        return (c);
+    }*/
 }
