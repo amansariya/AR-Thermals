@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Right Object Detected!
+  m_text: Object Detected!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -898,13 +898,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197133826}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.0099, y: -0.0783, z: 0.3968}
-  m_LocalScale: {x: 0.012, y: 0.009, z: 0.009}
+  m_LocalScale: {x: 0.009, y: 0.012, z: 0.012}
   m_Children: []
   m_Father: {fileID: 701743542}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!64 &197133828
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1890,7 +1890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &507430440
 Transform:
   m_ObjectHideFlags: 0
@@ -2799,7 +2799,6 @@ GameObject:
   - component: {fileID: 701743544}
   - component: {fileID: 701743543}
   - component: {fileID: 701743545}
-  - component: {fileID: 701743546}
   - component: {fileID: 701743547}
   m_Layer: 0
   m_Name: ARCamera
@@ -2956,22 +2955,6 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
---- !u!114 &701743546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701743537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03ab9a336aa4eae40a5c00b513e2a6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempValueLeft: {fileID: 1800326239}
-  tempValueRight: {fileID: 1538156101}
-  colorIndicatorSphereLeft: {fileID: 1029226186}
-  colorIndicatorSphereRight: {fileID: 1137422223}
 --- !u!114 &701743547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3088,7 +3071,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -5207,8 +5190,8 @@ ParticleSystem:
     enabled: 0
     m_Curve:
       serializedVersion: 2
-      minMaxState: 1
-      scalar: 1
+      minMaxState: 0
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5258,7 +5241,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_Range: {x: 0, y: 1.32}
+    m_Range: {x: 0, y: 7.34}
   ForceModule:
     enabled: 0
     x:
@@ -7824,8 +7807,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766006267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0359, z: 0.0181}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalPosition: {x: 0, y: -0.0359, z: 0.0354}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
   m_Father: {fileID: 1664431361}
   m_RootOrder: 0
@@ -9218,7 +9201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1029226187
 Transform:
   m_ObjectHideFlags: 0
@@ -9461,7 +9444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Left Object Detected!
+  m_text: Object Detected!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10084,7 +10067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1226831773
 Transform:
   m_ObjectHideFlags: 0
@@ -12520,11 +12503,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1648064101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40006a05a91270447999cedac1291d46, type: 3}
+  m_Script: {fileID: 11500000, guid: 03ab9a336aa4eae40a5c00b513e2a6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightTemp: 0
-  leftTemp: 0
+  tempValueLeft: {fileID: 1800326239}
+  tempValueRight: {fileID: 1538156101}
+  colorIndicatorSphereLeft: {fileID: 1029226186}
+  colorIndicatorSphereRight: {fileID: 1137422223}
   planeRenderer: {fileID: 197133829}
 --- !u!1 &1657260654
 GameObject:
@@ -13288,7 +13273,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -18024,8 +18009,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741148240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0359, z: 0.0181}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalPosition: {x: 0, y: -0.0359, z: 0.0354}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
   m_Father: {fileID: 639419702}
   m_RootOrder: 0
